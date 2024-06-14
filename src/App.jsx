@@ -13,8 +13,9 @@ import { SignUp } from "./pages/Auth/SignUp/SignUp";
 import { Login } from "./pages/Auth/Login/Login";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import translationEn from "../public/locales/en.json";
-import translationUz from "../public/locales/uz.json";
+import translationEn from "./locales/en.json";
+import translationUz from "./locales/uz.json";
+import translationRu from "./locales/ru.json";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -22,6 +23,7 @@ i18n.use(initReactI18next).init({
   resources: {
     en: { translation: translationEn },
     uz: { translation: translationUz },
+    ru: { translation: translationRu },
   },
   lng: localStorage.getItem("i18lng") || "uz",
   fallbackLng: localStorage.getItem("i18lng") || "uz",

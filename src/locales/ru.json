@@ -1,0 +1,65 @@
+{
+  "navbar": {
+    "home": "Главная",
+    "catalog": "Каталог",
+    "credit": "Кредит",
+    "contact": "Контакт",
+    "about_us": "O нас",
+    "news": "Новости",
+    "input_placeholder": "Поиск...",
+    "button_content": "Зарегистрироваться"
+  },
+  "signup": {
+    "top": "Зарегистрироваться",
+    "bottom": {
+      "p": "Уже есть аккаунт?",
+      "link": "Авторизоваться"
+    },
+    "phone": {
+      "title": "Телефон:",
+      "input_placeholder": "+998 00 000 00 00"
+    },
+    "full_name": {
+      "title": "Полное имя:",
+      "input_placeholder": "Ваше полное имя"
+    },
+    "email": {
+      "title": "Электронная почта:",
+      "input_placeholder": "Bаш адрес электронной почты"
+    },
+    "password": {
+      "title": "Пароль:",
+      "input_placeholder": "Ваш пароль"
+    },
+    "password2": {
+      "title": "Повторный пароль:",
+      "input_placeholder": "Ваш повторный пароль"
+    }
+  },
+  "login": {
+    "top": "Авторизоваться",
+    "bottom": {
+      "p": "У вас нет аккаунта?",
+      "link": "Зарегистрироваться"
+    },
+    "phone": {
+      "title": "Телефон:",
+      "input_placeholder": "+998 00 000 00 00"
+    },
+    "password": {
+      "title": "Пароль:",
+      "input_placeholder": "Ваш пароль"
+    }
+  },
+  "contact": {
+    "1": {
+      "title": "Позвоните нам",
+      "desc": "Мы доступны 24/7, 7 дней в неделю.",
+      "phone": "Телефон:",
+      "email": "Электронная почта:"
+    },
+    "2": {
+      "title": "Социальное"
+    }
+  }
+}

@@ -70,3 +70,35 @@ a {
   justify-content: center;
   width: 100%;
 }
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 120px;
+  position: relative;
+  height: 600px;
+  img {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    left: -120px;
+    object-fit: cover;
+  }
+  h2,
+  p {
+    z-index: 100;
+    color: #000;
+  }
+  h2 {
+    font-size: 70px;
+  }
+  &:nth-child(2) {
+    h2,
+    p {
+      width: 100%;
+      color: #fff;
+      margin-left: auto;
+    }
+  }
+}

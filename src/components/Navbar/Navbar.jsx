@@ -35,10 +35,11 @@ export const Navbar = ({ changeLang }) => {
         <select
           className={styles.select}
           onChange={changeLangHandler}
-          value={localStorage.getItem("i18lng")}
+          value={localStorage.getItem("i18lng") || "uz"}
         >
           <option value="uz">O`zbekcha</option>
           <option value="en">English</option>
+          <option value="ru">Русский</option>
         </select>
         {!localStorage.getItem("token") ? (
           <Link to={"/auth/signup"}>
