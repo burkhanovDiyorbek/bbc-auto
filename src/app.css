@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  display: flex;
+  max-width: 1410px;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.active {
+  font-weight: 500;
+}
+
+.active::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  background: #000;
+  animation: anim 0.2s ease backwards;
+  animation-iteration-count: 15;
+  height: 2px;
+  width: 100%;
+}
+
+.error-p {
+  color: red;
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 0;
+  width: 100%;
+  background: rgb(197, 196, 196);
+  margin: 40px 0;
+  h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 280px));
+  grid-auto-rows: 380px;
+  gap: 80px;
+  justify-content: center;
+  width: 100%;
+}

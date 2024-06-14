@@ -1,0 +1,40 @@
+.auth-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    max-width: 500px;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 340px;
+      gap: 20px;
+      input {
+        width: 100%;
+        padding: 5px 12px;
+        border-radius: 5px;
+        outline: none;
+        font-family: inherit;
+      }
+      label {
+        div {
+          display: flex;
+          input {
+            border-radius: 4px 0 0 4px;
+          }
+          button {
+            border-radius: 0 4px 4px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+p:last-child {
+  margin-top: 20px;
+}

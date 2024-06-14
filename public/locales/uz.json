@@ -1,0 +1,65 @@
+{
+  "navbar": {
+    "home": "Bosh Sahifa",
+    "catalog": "Katalog",
+    "credit": "Kredit",
+    "contact": "Aloqa",
+    "about_us": "Biz Haqimizda",
+    "news": "Yangiliklar",
+    "input_placeholder": "Qidiruv...",
+    "button_content": "Ro'yhatdan o'tish"
+  },
+  "signup": {
+    "top": "Ro'yhatdan o'tish",
+    "bottom": {
+      "p": "Akkountingiz bormi?",
+      "link": "Kirish"
+    },
+    "phone": {
+      "title": "Telefon raqam:",
+      "input-placeholder": "+998 00 000 00 00"
+    },
+    "full_name": {
+      "title": "Ism va familya:",
+      "input_placeholder": "Ism va familyangizni kiriting"
+    },
+    "email": {
+      "title": "Email:",
+      "input_placeholder": "Emailingizni kiriting"
+    },
+    "password": {
+      "title": "Parol:",
+      "input_placeholder": "Parolingizni kiriting"
+    },
+    "password2": {
+      "title": "Qayta parol:",
+      "input_placeholder": "Parolingizni qayta kiriting"
+    }
+  },
+  "login": {
+    "top": "Kirish",
+    "bottom": {
+      "p": "Akkountingiz yo'qmi?",
+      "link": "Ro'yhatdan o'tish"
+    },
+    "phone": {
+      "title": "Telefon raqam:",
+      "input_placeholder": "+998 00 000 00 00"
+    },
+    "password": {
+      "title": "Parol:",
+      "input_placeholder": "Parolingizni kiriting"
+    }
+  },
+  "contact": {
+    "1": {
+      "title": "Bizga bilan bo'g'lanish",
+      "desc": "Biz 24/7 va haftada 7 kun aloqadamiz.",
+      "phone": "Telefon raqam:",
+      "email": "E-pocta:"
+    },
+    "2": {
+      "title": "Itjimoiy tarmoqlar"
+    }
+  }
+}

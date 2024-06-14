@@ -1,0 +1,65 @@
+{
+  "navbar": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "credit": "Credit",
+    "contact": "Contact",
+    "about_us": "About us",
+    "news": "News",
+    "input_placeholder": "Search anything...",
+    "button_content": "Register"
+  },
+  "signup": {
+    "top": "SignUp",
+    "bottom": {
+      "p": "Already have account?",
+      "link": "Login"
+    },
+    "phone": {
+      "title": "Phone:",
+      "input_placeholder": "+998 00 000 00 00"
+    },
+    "full_name": {
+      "title": "Fullname:",
+      "input_placeholder": "Enter your fullname"
+    },
+    "email": {
+      "title": "Email:",
+      "input_placeholder": "Enter your email"
+    },
+    "password": {
+      "title": "Password:",
+      "input_placeholder": "Enter your password"
+    },
+    "password2": {
+      "title": "Reenter password:",
+      "input_placeholder": "Reenter your password"
+    }
+  },
+  "login": {
+    "top": "Login",
+    "bottom": {
+      "p": "Don`t have account?",
+      "link": "Register"
+    },
+    "phone": {
+      "title": "Phone:",
+      "input_placeholder": "+998 00 000 00 00"
+    },
+    "password": {
+      "title": "Password:",
+      "input_placeholder": "Enter your password"
+    }
+  },
+  "contact": {
+    "1": {
+      "title": "Call To Us",
+      "desc": "We are available 24/7, 7 days a week.",
+      "phone": "Phone:",
+      "email": "Email:"
+    },
+    "2": {
+      "title": "Socials"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 70px;
+}
+.btn {
+  margin-left: auto;
+}
+.contact {
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  margin-bottom: 140px;
+}
+.contact-container {
+  display: flex;
+  gap: 30px;
+  form {
+    max-width: 800px;
+    height: 457px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+    padding: 40px 35px;
+    div {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    input,
+    textarea {
+      padding: 13px 16px;
+      color: var(--Text2, #000);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px; /* 150% */
+      border-radius: 4px;
+      background: var(--Secondary, #f5f5f5);
+      border: none;
+      outline: none;
+    }
+    textarea {
+      max-width: 767px;
+      width: 100% !important;
+      height: 207px !important;
+      resize: none;
+      outline: none;
+      border: none;
+      font-family: inherit;
+      margin-bottom: 32px;
+    }
+    button {
+      max-width: 235px;
+      margin-left: auto;
+    }
+  }
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 340px;
+  height: 457px;
+  padding: 40px 35px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
+  p {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px; /* 150% */
+    margin-bottom: 24px;
+  }
+  img {
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--Secondary-2, #db4444);
+  }
+  li {
+    margin-bottom: 16px;
+    color: var(--Text2, #000);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+  }
+  div:first-child {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+  }
+}
+
+.socials{
+  display: flex;
+  gap: 20px;
+  li{
+    padding: 5px 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  li:hover{
+    border-radius: 4px;
+    background: rgba(128, 128, 128, 0.308);
+  }
+  svg{
+    width: 30px;
+    height: 30px;
+  }
+}
