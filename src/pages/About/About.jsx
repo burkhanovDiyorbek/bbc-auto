@@ -1,14 +1,73 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./about.module.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
+import { WorkersCard } from "../../components/WorkersCard/WorkersCard";
+import { Services } from "../../components/ServicesCard/ServicesCard";
 
-export const About = () => {
+export const About = ({ setContentLoading }) => {
+  const [aboutData, setAboutData] = useState({});
+  const [workersData, setWorkersData] = useState([]);
+  const [servicesData, setServicesData] = useState([]);
+  const { t, i18n } = useTranslation();
+  const curLng = i18n.language;
+
   useEffect(() => {
     const fetchData = async () => {
-      const req = await axios.get("/slider/slider/1");
-      console.log(req.data);
+      setContentLoading(true);
+      try {
+        const req = await axios.get("/about/top");
+        const reqWorkers = await axios.get("/about/workers");
+        const reqServices = await axios.get("/about/services");
+        setAboutData(req.data.results[0]);
+        setWorkersData(reqWorkers.data.results);
+        setServicesData(reqServices.data.results);
+        setContentLoading(false);
+      } catch (error) {
+        toast.error(error.message, { position: "top-center" });
+      }
     };
     fetchData();
   }, []);
-  return <div className={styles.about}>About</div>;
+  console.log(aboutData, workersData, servicesData);
+  return (
+    <div className={styles.about}>
+      <div className={styles["about-container"] + " container"}>
+        <div className={styles.top}>
+          <h2>{t("navbar.about_us")}</h2>
+          <div>
+            <div className={styles.content}>
+              <h2>{aboutData?.[`title_${curLng}`]}</h2>
+              <p>{aboutData?.[`description_${curLng}`]}</p>
+            </div>
+            <div className={styles["card-img"]}>
+              <img src={aboutData?.image} alt="" />
+            </div>
+          </div>
+        </div>
+        <div className={styles.slice}>
+          <h2>{t("about_us.workers")}</h2>
+          <div className="cards">
+            {workersData.map((item) => (
+              <WorkersCard key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+        <div className={styles.slice}>
+          <h2>{t("about_us.services")}</h2>
+          <div className="cards">
+            {servicesData.map((item) => (
+              <Services key={item.id} item={item} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+About.propTypes = {
+  setContentLoading: PropTypes.func,
 };

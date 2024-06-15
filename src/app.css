@@ -65,7 +65,6 @@ a {
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 380px));
-  grid-auto-rows: 380px;
   gap: 80px;
   justify-content: center;
   width: 100%;
@@ -102,6 +101,19 @@ a {
   }
 }
 
+.catalog-section {
+  .swiper-slide {
+    width: 400px;
+    height: 400px;
+    img {
+      object-fit: cover;
+      width: auto;
+      height: auto;
+      position: static;
+      left: 0;
+    }
+  }
+}
 .loader {
   display: flex;
   justify-content: center;

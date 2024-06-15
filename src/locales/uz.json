@@ -67,5 +67,16 @@
     "title": "Voy, bu sahifani topib bo'lmadi!",
     "desc": "Siz qidirayotgan sahifa oʻchirilgan, nomi oʻzgartirilgan yoki vaqtincha mavjud boʻlmagan boʻlishi mumkin.",
     "btn_content": "Bosh sahifaga qaytish"
+  },
+  "about_us": {
+    "workers": "Bizning Jamoa",
+    "services": "Bizning Xizmatlarimiz"
+  },
+  "catalog":{
+    "discount_true":"Faqat chegirmadagilar",
+    "sort_all_type":"Uzatgichlik Qutilar",
+    "mechanic":"Mexanika Quti",
+    "automatic":"Avtomat Quti",
+    "partners":"Bizning hamkorlarimiz"
   }
 }

@@ -1,0 +1,28 @@
+.about {
+  .about-container {
+    flex-direction: column;
+  }
+  .slice,.top {
+    margin: 60px 0;
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+  .top {
+    div {
+      display: flex;
+      justify-content: space-evenly;
+      .content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+      }
+      img {
+        max-width: 600px;
+        height: 400px;
+      }
+    }
+  }
+}

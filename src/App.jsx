@@ -37,6 +37,7 @@ function App() {
     localStorage.setItem("i18lng", value);
   };
 
+  document.body.style = contentLoading ? "overflow:hidden" : "overflow:auto";
   return (
     <>
       <Routes>
@@ -55,8 +56,7 @@ function App() {
           />
           <Route
             path="about"
-            element={<About />}
-            setContentLoading={setContentLoading}
+            element={<About setContentLoading={setContentLoading} />}
           />
           <Route
             path="contact"

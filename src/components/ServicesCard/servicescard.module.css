@@ -1,0 +1,16 @@
+.card {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 50px 10px rgba(128, 128, 128, 0.082);
+  height: 250px;
+  img {
+    width: 80px;
+  }
+  h2{
+   margin-bottom: 0!important;
+   text-align: start;
+  }
+}

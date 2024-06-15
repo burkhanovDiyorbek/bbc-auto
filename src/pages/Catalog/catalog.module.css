@@ -1,0 +1,38 @@
+.label {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.377);
+  padding: 4px 12px;
+  border-radius: 4px;
+  width: 300px;
+  input {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    width: 100%;
+  }
+}
+.sort{
+ display: flex;
+ justify-content: space-evenly;
+ align-items: center;
+ padding: 20px 25px;
+ background: #00000010;
+ margin-bottom: 40px;
+ *{
+  background: transparent;
+ }
+ select{
+  border-radius: 8px;
+  padding: 14px 20px;
+  outline: none;
+ }
+ div{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  label{
+   font-size: 20px;
+  }
+ }
+}
