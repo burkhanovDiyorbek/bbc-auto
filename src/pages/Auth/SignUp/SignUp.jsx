@@ -1,6 +1,6 @@
 import { IMaskInput } from "react-imask";
 import "../auth.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../../../components/Button/Button";
 import { FaEyeSlash } from "react-icons/fa";
 import { FaEye } from "react-icons/fa";
@@ -16,10 +16,16 @@ export const SignUp = () => {
   const [fullname, setFullname] = useState(false);
   const [email, setEmail] = useState(false);
   const [password2, setPassword2] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    localStorage.getItem("token") && navigate("/");
+  }, []);
+
   const onSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const data = {
       full_name: fullname,
@@ -29,13 +35,14 @@ export const SignUp = () => {
       password2: password2,
     };
     try {
-      await axios.post("http://bbc.mebel-zakaz.uz/users/register/", data);
+      await axios.post("/users/register/", data);
       toast.success("Succesfully", { position: "top-center" });
       navigate("/auth/login");
     } catch (error) {
       toast.error(error.message, { position: "top-center" });
       console.log(error.message);
     }
+    setIsLoading(false);
   };
 
   return (
@@ -91,9 +98,14 @@ export const SignUp = () => {
               placeholder={t("signup.password2.input_placeholder")}
               type="password"
               onInput={(e) => setPassword2(e.target.value)}
+              required
             />
           </label>
-          <Button content={t("signup.top")} classname="register" />
+          <Button
+            content={t("signup.top")}
+            classname="register"
+            isLoading={isLoading}
+          />
         </form>
         <p>
           {t("signup.bottom.p")}{" "}

@@ -7,7 +7,8 @@
     "about_us": "Biz Haqimizda",
     "news": "Yangiliklar",
     "input_placeholder": "Qidiruv...",
-    "button_content": "Ro'yhatdan o'tish"
+    "button_content": "Ro'yhatdan o'tish",
+    "discount": "Qaynoq Chegirmalar"
   },
   "signup": {
     "top": "Ro'yhatdan o'tish",
@@ -17,7 +18,7 @@
     },
     "phone": {
       "title": "Telefon raqam:",
-      "input-placeholder": "+998 00 000 00 00"
+      "input_placeholder": "+998 00 000 00 00"
     },
     "full_name": {
       "title": "Ism va familya:",
@@ -61,5 +62,10 @@
     "2": {
       "title": "Itjimoiy tarmoqlar"
     }
+  },
+  "404": {
+    "title": "Voy, bu sahifani topib bo'lmadi!",
+    "desc": "Siz qidirayotgan sahifa oʻchirilgan, nomi oʻzgartirilgan yoki vaqtincha mavjud boʻlmagan boʻlishi mumkin.",
+    "btn_content": "Bosh sahifaga qaytish"
   }
 }

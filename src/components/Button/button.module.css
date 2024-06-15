@@ -1,13 +1,17 @@
-button{
- padding: 5px 12px;
- border-radius: 8px;
- font-family: inherit;
- border: none;
- font-size: 16px;
- font-weight: 600;
- cursor: pointer;
+button {
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
 }
-.register{
- background: #03686b;
- color: #fff;
+.register {
+  background: #03686b;
+  color: #fff;
+}
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

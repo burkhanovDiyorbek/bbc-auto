@@ -4,16 +4,19 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { NewsCard } from "../../components/NewsCard/NewsCard";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
-export const News = () => {
+export const News = ({ setContentLoading }) => {
   const [newsData, setNewData] = useState([]);
   const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
+      setContentLoading(true);
       try {
-        const req = await axios.get("http://bbc.mebel-zakaz.uz/news/news/");
+        const req = await axios.get("/news/news/");
         setNewData(req.data.results);
+        setContentLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -39,3 +42,8 @@ export const News = () => {
     </section>
   );
 };
+
+News.propTypes = {
+  setContentLoading: PropTypes.func,
+};
+  

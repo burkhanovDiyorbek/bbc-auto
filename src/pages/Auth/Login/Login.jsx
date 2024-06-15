@@ -1,5 +1,4 @@
 import { IMaskInput } from "react-imask";
-import "../auth.css";
 import { useEffect, useState } from "react";
 import { Button } from "../../../components/Button/Button";
 import { FaEyeSlash } from "react-icons/fa";
@@ -8,27 +7,39 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
+import "../auth.css";
 
 export const Login = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  useEffect(() => {}, []);
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      phone: phone.replaceAll(" ", ""),
-      password: password,
+
+  useEffect(() => {
+    localStorage.getItem("token") && navigate("/");
+  }, []);
+
+  const onSubmit = (e) => {
+    const fetchData = async () => {
+      e.preventDefault();
+      setIsLoading(true);
+      const data = {
+        phone: phone.replaceAll(" ", ""),
+        password: password,
+      };
+      try {
+        const req = await axios.post("/users/token/", data);
+        localStorage.setItem("token", req.data.access);
+        toast.success("Succesfully", { position: "top-center" });
+        navigate("/");
+      } catch (error) {
+        toast.error(error.message, { position: "top-center" });
+      }
+      setIsLoading(false);
     };
-    try {
-      await axios.post("http://bbc.mebel-zakaz.uz/users/token/", data);
-      toast.success("Succesfully", { position: "top-center" });
-      navigate("/");
-    } catch (error) {
-      toast.error(error.message, { position: "top-center" });
-    }
+    fetchData();
   };
   return (
     <section className="auth-section">
@@ -52,12 +63,16 @@ export const Login = () => {
                 placeholder={t("signup.password.input_placeholder")}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button onClick={() => setShowPass((prev) => !prev)}>
+              <div onClick={() => setShowPass((prev) => !prev)}>
                 {showPass ? <FaEyeSlash /> : <FaEye />}
-              </button>
+              </div>
             </div>
           </label>
-          <Button content={t('login.top')} classname="register" />
+          <Button
+            content={t("login.top")}
+            classname="register"
+            isLoading={isLoading}
+          />
         </form>
         <p>
           {t("login.bottom.p")}{" "}

@@ -26,15 +26,22 @@
           input {
             border-radius: 4px 0 0 4px;
           }
-          button {
+          div {
+            background: rgb(221, 219, 219);
             border-radius: 0 4px 4px 0;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
         }
       }
     }
   }
-}
-
-p:last-child {
-  margin-top: 20px;
+  p:last-child {
+    margin-top: 20px;
+    a {
+      text-decoration: underline;
+    }
+  }
 }

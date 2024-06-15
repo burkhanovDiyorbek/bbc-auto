@@ -5,11 +5,11 @@ import { FaTelegram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
-
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-export const Contact = () => {
+export const Contact = ({ setContentLoading }) => {
   const [contactData, setContactData] = useState([{}]);
   const [locationData, setLocation] = useState([{}]);
 
@@ -17,15 +17,13 @@ export const Contact = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setContentLoading(true);
       try {
-        const req = await axios.get(
-          "http://bbc.mebel-zakaz.uz/connection/contact/"
-        );
-        const reqLoc = await axios.get(
-          "http://bbc.mebel-zakaz.uz/connection/location/"
-        );
+        const req = await axios.get("/connection/contact/");
+        const reqLoc = await axios.get("/connection/location/");
         setContactData(req.data.results);
         setLocation(reqLoc.data.results);
+        setContentLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -88,10 +86,14 @@ export const Contact = () => {
             src={`https://maps.google.com/maps?q=${lat},${long}&z=${16}&output=embed`}
             width="560"
             height="400"
-            allowFullScreen="true"
+            allowFullScreen={true}
           ></iframe>
         </div>
       </div>
     </section>
   );
+};
+
+Contact.propTypes = {
+  setContentLoading: PropTypes.func,
 };

@@ -13,15 +13,15 @@ import { SignUp } from "./pages/Auth/SignUp/SignUp";
 import { Login } from "./pages/Auth/Login/Login";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import translationEn from "./locales/en.json";
 import translationUz from "./locales/uz.json";
 import translationRu from "./locales/ru.json";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import { Loader } from "./components/Loader";
 
 i18n.use(initReactI18next).init({
   resources: {
-    en: { translation: translationEn },
     uz: { translation: translationUz },
     ru: { translation: translationRu },
   },
@@ -30,27 +30,59 @@ i18n.use(initReactI18next).init({
 });
 
 function App() {
+  const [contentLoading, setContentLoading] = useState(false);
+
   const changeLang = (value) => {
     i18n.changeLanguage(value);
     localStorage.setItem("i18lng", value);
   };
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout changeLang={changeLang} />}>
-          <Route index element={<Home />} />
-          <Route path="catalog" element={<Catalog />} />
-          <Route path="credit" element={<Credit />} />
-          <Route path="about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="chat" element={<Chat />} />
-          <Route path="news" element={<News />} />
-          <Route path="auth/signup" element={<SignUp />} />
-          <Route path="auth/login" element={<Login />} />
+          <Route
+            index
+            element={<Home setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="catalog"
+            element={<Catalog setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="credit"
+            element={<Credit setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="about"
+            element={<About />}
+            setContentLoading={setContentLoading}
+          />
+          <Route
+            path="contact"
+            element={<Contact setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="chat"
+            element={<Chat setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="news"
+            element={<News setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="auth/signup"
+            element={<SignUp setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="auth/login"
+            element={<Login setContentLoading={setContentLoading} />}
+          />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <ToastContainer />
+      {contentLoading && <Loader />}
     </>
   );
 }

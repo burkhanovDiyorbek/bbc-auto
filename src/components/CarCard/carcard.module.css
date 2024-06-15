@@ -1,0 +1,46 @@
+.card {
+  max-width: 380px;
+  box-shadow: 0 20px 50px 10px rgba(128, 128, 128, 0.164);
+  height: 520px;
+  cursor: pointer;
+  .card-img {
+    width: 100%;
+    height: 210px;
+    img {
+      height: 210px;
+      width: 100%;
+    }
+  }
+  svg {
+    path {
+      fill: green;
+    }
+  }
+  h2 {
+    color: green;
+    text-transform: capitalize;
+  }
+  h2,
+  p {
+    padding: 15px 20px;
+  }
+}
+.static {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  background: rgba(128, 128, 128, 0.171);
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-right: 1px solid rgba(0, 128, 0, 0.473);
+    width: 32%;
+    font-size: 14px;
+    padding: 0;
+    &:last-child {
+      border-right: 0;
+    }
+  }
+}
