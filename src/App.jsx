@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home/Home";
 import { Catalog } from "./pages/Catalog/Catalog";
-import { Credit } from "./pages/Credit/Credit";
 import { About } from "./pages/About/About";
 import "./app.css";
 import Chat from "./pages/Chat/Chat";
@@ -19,6 +18,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { Loader } from "./components/Loader";
+import { CatalogCarInfo } from "./pages/CatalogCarInfo/CatalogCarInfo";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -51,8 +51,8 @@ function App() {
             element={<Catalog setContentLoading={setContentLoading} />}
           />
           <Route
-            path="credit"
-            element={<Credit setContentLoading={setContentLoading} />}
+            path="catalog/car/:id"
+            element={<CatalogCarInfo setContentLoading={setContentLoading} />}
           />
           <Route
             path="about"
@@ -62,6 +62,7 @@ function App() {
             path="contact"
             element={<Contact setContentLoading={setContentLoading} />}
           />
+          <Route path="catalog/car/:id" element={<CatalogCarInfo />} />
           <Route
             path="chat"
             element={<Chat setContentLoading={setContentLoading} />}

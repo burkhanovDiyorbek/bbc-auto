@@ -8,10 +8,11 @@ import { useTranslation } from "react-i18next";
 import { FaSearch } from "react-icons/fa";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { Autoplay, Navigation, A11y } from "swiper/modules";
+import PropTypes from "prop-types";
 import "swiper/css";
 import "swiper/css/bundle";
 
-export const Catalog = () => {
+export const Catalog = ({ setContentLoading }) => {
   const [catalog, setCatalog] = useState([]);
   const [search, setSearch] = useState("");
   const [discount, setDiscount] = useState(false);
@@ -22,11 +23,13 @@ export const Catalog = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setContentLoading(true);
       try {
         const reqCatalog = await axios.get("/catalog/car/");
         const reqLogos = await axios.get("/catalog/logo/");
         setCatalog(reqCatalog.data.results);
         setSliders(reqLogos.data.results);
+        setContentLoading(false);
       } catch (error) {
         toast.error(error.message, { position: "top-center" });
       }
@@ -135,4 +138,8 @@ export const Catalog = () => {
       </div>
     </section>
   );
+};
+
+Catalog.propTypes = {
+  setContentLoading: PropTypes.func,
 };

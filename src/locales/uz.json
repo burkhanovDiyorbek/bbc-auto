@@ -72,11 +72,21 @@
     "workers": "Bizning Jamoa",
     "services": "Bizning Xizmatlarimiz"
   },
-  "catalog":{
-    "discount_true":"Faqat chegirmadagilar",
-    "sort_all_type":"Uzatgichlik Qutilar",
-    "mechanic":"Mexanika Quti",
-    "automatic":"Avtomat Quti",
-    "partners":"Bizning hamkorlarimiz"
+  "catalog": {
+    "discount_true": "Faqat chegirmadagilar",
+    "sort_all_type": "Uzatgichlik Qutilar",
+    "mechanic": "Mexanika Quti",
+    "automatic": "Avtomat Quti",
+    "partners": "Bizning hamkorlarimiz",
+    "card_details": "Avtomobil xususiyatlari",
+    "year": "Chiqarilgan sana:",
+    "color": "Rang:",
+    "distance": "Yurgan masofasi:",
+    "characteristics": "xususiyatlari",
+    "calculate": "Bo'lib to'lashni hisoblash",
+    "down_payment": "Ilk to'lov",
+    "interest_rate": "Yillik foiz (%)",
+    "period_month": "Muddati",
+    "all_payment": "Siz to'laysiz"
   }
 }

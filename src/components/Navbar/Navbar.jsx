@@ -55,8 +55,8 @@ export const Navbar = ({ changeLang }) => {
               />
             </Link>
           ) : (
-            <div className={styles.user}>
-              <CiLogout onClick={logOut} />
+            <div className={styles.user} onClick={logOut} >
+              <CiLogout />
             </div>
           )
         ) : (

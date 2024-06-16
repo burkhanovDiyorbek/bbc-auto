@@ -77,6 +77,16 @@
     "sort_all_type": "Коробки трансмиссии",
     "mechanic": "Механический блок",
     "automatic": "Автоматическая коробка",
-    "partners": "Наши партнеры"
+    "partners": "Наши партнеры",
+    "card_details": "O Mашине",
+    "year": "Год выпуска:",
+    "color": "цвет:",
+    "distance": "пройденный путь:",
+    "characteristics": "характеристики",
+    "calculate": "Рассчитать рассрочку",
+    "down_paying": "Первоначальный взнос",
+    "interest_rate": "Процент годовых (%)",
+    "period_month": "Период",
+    "all_paying": "Вы платите"
   }
 }
