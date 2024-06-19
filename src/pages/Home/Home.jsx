@@ -39,6 +39,15 @@ export const Home = ({ setContentLoading }) => {
       }
     };
     fetchData();
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://bbc.mebel-zakaz.uz/slider/slider/", true); // "your-domain.com"ni haqiqiy domeningizga almashtiring
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr);
+      }
+    };
+    xhr.send();
+
   }, []);
 
   return (
