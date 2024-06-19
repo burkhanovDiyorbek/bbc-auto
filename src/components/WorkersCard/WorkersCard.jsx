@@ -6,7 +6,7 @@ export const WorkersCard = ({ item }) => {
   const { i18n } = useTranslation();
   const curLng = i18n.language;
   const { image } = item;
-  console.log(item);
+  
   return (
     <div className={styles.card}>
       <div className={styles["card-img"]}>
