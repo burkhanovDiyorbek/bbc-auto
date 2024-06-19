@@ -19,10 +19,6 @@ import { useState } from "react";
 import { Loader } from "./components/Loader";
 import { CatalogCarInfo } from "./pages/CatalogCarInfo/CatalogCarInfo";
 import { Credit } from "./pages/Credit/Credit";
-// import { ChatRoom } from "./components/Chat/ChatRoom";
-import ProductDetail from "./ProductDetails";
-import ChatRoom from "./components/Chat/ChatRoom";
-// import {Chat}from './components/Chat/Chat'
 
 i18n.use(initReactI18next).init({
   resources: {
