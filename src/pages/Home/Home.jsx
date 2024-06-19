@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, A11y } from "swiper/modules";
+import { Autoplay, Navigation, A11y, Pagination } from "swiper/modules";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -8,8 +8,11 @@ import { NewsCard } from "../../components/NewsCard/NewsCard";
 import { useTranslation } from "react-i18next";
 import { CarCard } from "../../components/CarCard/CarCard";
 import PropTypes from "prop-types";
+import { Button } from "../../components/Button/Button";
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/bundle";
+import "swiper/css/pagination";
 
 export const Home = ({ setContentLoading }) => {
   const [sliders, setSliders] = useState([]);
@@ -41,35 +44,50 @@ export const Home = ({ setContentLoading }) => {
   return (
     <section className={styles["home-section"]}>
       <Swiper
-        modules={[Autoplay, Navigation, A11y]}
+        modules={[Autoplay, Navigation, Pagination, A11y]}
         spaceBetween={500}
         slidesPerView={1}
         navigation
+        pagination={{ clickable: true }}
         loop={true}
         autoplay={{
           delay: 3000,
-          disableOnInteraction: false,
         }}
       >
         <SwiperSlide>
           <div className="swiper-slide">
             <img src={sliders[0]?.image} alt="img" />
-            <h2>{sliders[0]?.[`title_${curLng}`]}</h2>
-            <p>{sliders[0]?.[`description_${curLng}`]}</p>
+            <div className={styles.content}>
+              <h2>{sliders[0]?.[`title_${curLng}`]}</h2>
+              <p>{sliders[0]?.[`description_${curLng}`]}</p>
+              <Link to={"/catalog"}>
+                <Button content={t("navbar.catalog")} classname="home" />
+              </Link>
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="swiper-slide">
             <img src={sliders[1]?.image} alt="img" />
-            <h2>{sliders[1]?.[`title_${curLng}`]}</h2>
-            <p>{sliders[1]?.[`description_${curLng}`]}</p>
+            <div className={styles.content}>
+              <h2>{sliders[1]?.[`title_${curLng}`]}</h2>
+              <p>{sliders[1]?.[`description_${curLng}`]}</p>
+              <Link to={"/catalog"}>
+                <Button content={t("navbar.catalog")} classname="home" />
+              </Link>
+            </div>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className="swiper-slide">
             <img src={sliders[2]?.image} alt="img" />
-            <h2>{sliders[2]?.[`title_${curLng}`]}</h2>
-            <p>{sliders[2]?.[`description_${curLng}`]}</p>
+            <div className={styles.content}>
+              <h2>{sliders[2]?.[`title_${curLng}`]}</h2>
+              <p>{sliders[2]?.[`description_${curLng}`]}</p>
+              <Link to={"/catalog"}>
+                <Button content={t("navbar.catalog")} classname="home" />
+              </Link>
+            </div>
           </div>
         </SwiperSlide>
       </Swiper>
@@ -77,15 +95,15 @@ export const Home = ({ setContentLoading }) => {
         <div className={styles.slice}>
           <h2>{t("navbar.discount")}</h2>
           <div className="cards">
-            {discountData.map((item, index) => {
-              return index < 4 && <CarCard key={item.id} item={item} />;
+            {discountData.reverse().map((item, index) => {
+              return index < 4 && <CarCard item={item} key={item.id} />;
             })}
           </div>
         </div>
         <div className={styles.slice}>
           <h2>{t("navbar.news")}</h2>
-          <div className="cards">
-            {newsData.map((item, index) => {
+          <div className={styles["news-cards"]}>
+            {newsData.reverse().map((item, index) => {
               return index < 4 && <NewsCard key={item.id} item={item} />;
             })}
           </div>

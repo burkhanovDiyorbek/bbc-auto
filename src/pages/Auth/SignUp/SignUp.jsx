@@ -39,8 +39,12 @@ export const SignUp = () => {
       toast.success("Succesfully", { position: "top-center" });
       navigate("/auth/login");
     } catch (error) {
-      toast.error(error.message, { position: "top-center" });
-      console.log(error.message);
+      const err = error?.response?.data;
+      Object.keys(err)?.map((item) => {
+        return toast.error(item + ": " + err[item].join(" "), {
+          position: "top-center",
+        });
+      });
     }
     setIsLoading(false);
   };
@@ -87,9 +91,12 @@ export const SignUp = () => {
                 placeholder={t("signup.password.input_placeholder")}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button onClick={() => setShowPass((prev) => !prev)}>
+              <div
+                className="show-pass"
+                onClick={() => setShowPass((prev) => !prev)}
+              >
                 {showPass ? <FaEyeSlash /> : <FaEye />}
-              </button>
+              </div>
             </div>
           </label>
           <label>

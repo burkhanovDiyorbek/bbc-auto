@@ -6,20 +6,29 @@ import { CiLogout } from "react-icons/ci";
 import { Button } from "../Button/Button";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { Select } from "../Select/Select";
+import React from "react";
+import { Time } from "../Time/Time";
+import { ExchangeRates } from "../ExchangeRates/ExchangeRates";
 
-export const Navbar = ({ changeLang }) => {
+export const Navbar = React.memo(({ changeLang }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const changeLangHandler = (e) => {
-    changeLang(e.target.value);
-  };
   const { pathname } = useLocation();
+
   const logOut = () => {
     localStorage.removeItem("token");
     navigate("/auth/login");
   };
+
   return (
     <nav className={styles.navbar}>
+      <div className={styles.top}>
+        <Time />
+        <div className={styles.wheather}></div>
+        <p className={styles.alert}>{t("navbar.test")}</p>
+        <ExchangeRates/>
+      </div>
       <div className={styles.container + " container"}>
         <Link to="/" className={styles.logo}>
           BBC AUTO
@@ -38,14 +47,27 @@ export const Navbar = ({ changeLang }) => {
           <input type="text" placeholder={t("navbar.input_placeholder")} />
           <FaSearch />
         </label>
-        <select
-          className={styles.select}
-          onChange={changeLangHandler}
-          value={localStorage.getItem("i18lng") || "uz"}
-        >
-          <option value="uz">O`zbekcha</option>
-          <option value="ru">Русский</option>
-        </select>
+        <Select
+          data={{
+            className: "select",
+            onchangefunc: changeLang,
+            value: localStorage.getItem("i18lng") || "uz",
+            options: [
+              {
+                id: 0,
+                value: "uz",
+                content: "O'zbekcha",
+                imgUrl: "./../src/assets/uz.svg",
+              },
+              {
+                id: 1,
+                value: "ru",
+                content: "Русский",
+                imgUrl: "./../src/assets/ru.svg",
+              },
+            ],
+          }}
+        />
         {!pathname.includes("auth") ? (
           !localStorage.getItem("token") ? (
             <Link to={"/auth/signup"}>
@@ -55,7 +77,7 @@ export const Navbar = ({ changeLang }) => {
               />
             </Link>
           ) : (
-            <div className={styles.user} onClick={logOut} >
+            <div className={styles.user} onClick={logOut}>
               <CiLogout />
             </div>
           )
@@ -65,7 +87,9 @@ export const Navbar = ({ changeLang }) => {
       </div>
     </nav>
   );
-};
+});
+
+Navbar.displayName = "Navbar";
 
 Navbar.propTypes = {
   changeLang: PropTypes.func,

@@ -4,7 +4,6 @@ import { Home } from "./pages/Home/Home";
 import { Catalog } from "./pages/Catalog/Catalog";
 import { About } from "./pages/About/About";
 import "./app.css";
-import Chat from "./pages/Chat/Chat";
 import { Contact } from "./pages/Contact/Contact";
 import { News } from "./pages/News/News";
 import { NotFound } from "./pages/NotFound/NotFound";
@@ -19,6 +18,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { Loader } from "./components/Loader";
 import { CatalogCarInfo } from "./pages/CatalogCarInfo/CatalogCarInfo";
+import { Credit } from "./pages/Credit/Credit";
+// import { ChatRoom } from "./components/Chat/ChatRoom";
+import ProductDetail from "./ProductDetails";
+import ChatRoom from "./components/Chat/ChatRoom";
+// import {Chat}from './components/Chat/Chat'
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -37,7 +41,7 @@ function App() {
     localStorage.setItem("i18lng", value);
   };
 
-  document.body.style = contentLoading ? "overflow:hidden" : "overflow:auto";
+  // document.body.style = contentLoading ? "overflow:hidden" : "overflow:auto";
   return (
     <>
       <Routes>
@@ -49,6 +53,10 @@ function App() {
           <Route
             path="catalog"
             element={<Catalog setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="credit"
+            element={<Credit setContentLoading={setContentLoading} />}
           />
           <Route
             path="catalog/car/:id"
@@ -63,10 +71,6 @@ function App() {
             element={<Contact setContentLoading={setContentLoading} />}
           />
           <Route path="catalog/car/:id" element={<CatalogCarInfo />} />
-          <Route
-            path="chat"
-            element={<Chat setContentLoading={setContentLoading} />}
-          />
           <Route
             path="news"
             element={<News setContentLoading={setContentLoading} />}
@@ -83,7 +87,7 @@ function App() {
         </Route>
       </Routes>
       <ToastContainer />
-      {contentLoading && <Loader />}
+      { contentLoading && <Loader />}
     </>
   );
 }

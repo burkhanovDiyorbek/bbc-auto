@@ -1,0 +1,18 @@
+.div {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 20px;
+  border-radius: 20px;
+  background: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  svg {
+    path {
+      fill: aliceblue;
+    }
+  }
+}

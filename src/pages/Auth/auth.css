@@ -27,7 +27,7 @@
             border-radius: 4px 0 0 4px;
           }
           div {
-            background: rgb(221, 219, 219);
+            background: rgba(221, 219, 219, 0.26);
             border-radius: 0 4px 4px 0;
             padding: 5px;
             display: flex;

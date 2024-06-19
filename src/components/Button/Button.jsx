@@ -6,16 +6,17 @@ export const Button = ({
   content,
   clickFunc = null,
   isLoading = false,
+  isEmpty = false,
 }) => {
   return (
     <button
       className={
-        !isLoading
+        !isLoading || !isEmpty
           ? styles[classname]
-          : styles[classname] + " "  + styles.disabled
+          : styles[classname] + " " + styles.disabled
       }
       onClick={clickFunc}
-      disabled={isLoading}
+      disabled={isLoading || isEmpty}
     >
       {!isLoading ? content : "Loading..."}
     </button>
@@ -27,4 +28,5 @@ Button.propTypes = {
   content: PropTypes.string,
   clickFunc: PropTypes.func,
   isLoading: PropTypes.bool,
+  isEmpty: PropTypes.bool,
 };

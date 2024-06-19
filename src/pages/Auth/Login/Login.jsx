@@ -35,7 +35,12 @@ export const Login = () => {
         toast.success("Succesfully", { position: "top-center" });
         navigate("/");
       } catch (error) {
-        toast.error(error.message, { position: "top-center" });
+        const err = error?.response?.data;
+        Object.keys(err)?.map((item) => {
+          return toast.error(item + ": " + err[item], {
+            position: "top-center",
+          });
+        });
       }
       setIsLoading(false);
     };
@@ -53,6 +58,7 @@ export const Login = () => {
               type="tel"
               placeholder={t("signup.phone.input_placeholder")}
               onChange={(e) => setPhone(e.target.value)}
+              required
             />
           </label>
           <label>
@@ -62,8 +68,12 @@ export const Login = () => {
                 type={!showPass ? "password" : "text"}
                 placeholder={t("signup.password.input_placeholder")}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
-              <div onClick={() => setShowPass((prev) => !prev)}>
+              <div
+                onClick={() => setShowPass((prev) => !prev)}
+                className="show-pass"
+              >
                 {showPass ? <FaEyeSlash /> : <FaEye />}
               </div>
             </div>

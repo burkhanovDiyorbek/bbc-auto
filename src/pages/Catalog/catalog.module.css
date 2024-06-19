@@ -12,27 +12,37 @@
     width: 100%;
   }
 }
-.sort{
- display: flex;
- justify-content: space-evenly;
- align-items: center;
- padding: 20px 25px;
- background: #00000010;
- margin-bottom: 40px;
- *{
-  background: transparent;
- }
- select{
-  border-radius: 8px;
-  padding: 14px 20px;
-  outline: none;
- }
- div{
+.sort {
   display: flex;
-  gap: 10px;
+  justify-content: space-evenly;
   align-items: center;
-  label{
-   font-size: 20px;
+  padding: 20px 25px;
+  background: #00000010;
+  margin-bottom: 40px;
+
+  * {
+    background: transparent;
   }
- }
+  select {
+    border-radius: 8px;
+    padding: 14px 20px;
+    outline: none;
+    border-color: aliceblue;
+    color: #fff;
+    option {
+      color: black;
+    }
+  }
+  input {
+    color: #fff;
+  }
+  div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    label {
+      border-color: #fff;
+      font-size: 20px;
+    }
+  }
 }

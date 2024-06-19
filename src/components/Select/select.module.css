@@ -1,0 +1,31 @@
+.select {
+  height: 30px;
+  width: auto;
+  p {
+    padding: 5px 12px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .true {
+    background: #333222;
+    border-bottom: 1px solid #222222;
+    border-radius: 8px 8px 0 0;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: #333222;
+    padding: 5px 12px 10px;
+    border-radius: 0 0 8px 8px;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+  }
+}

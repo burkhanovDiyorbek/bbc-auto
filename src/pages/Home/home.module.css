@@ -1,4 +1,16 @@
+.home-section{
+  margin-top: -70px;
+  z-index: -1;
+  .news-cards{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+  }
+}
+
 .slice {
+  max-width: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,4 +24,16 @@
     display: grid;
     flex-direction: row;
   }
+}
+.content{
+  width: 100vw;
+  height: 100%;
+  z-index: 40;
+  position: absolute;
+  left: -120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(27, 23, 26, 0.322);
 }

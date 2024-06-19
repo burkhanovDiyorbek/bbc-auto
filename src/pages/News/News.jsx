@@ -27,15 +27,17 @@ export const News = ({ setContentLoading }) => {
   return (
     <section className={styles.section}>
       <div className="section-header">
-        <h2>{t("navbar.news")}</h2>
-        <p>
-          <Link to={"/"}>{t("navbar.home")}</Link> {">"} {t("navbar.news")}
-        </p>
+        <div className="section-header_content">
+          <h2>{t("navbar.news")}</h2>
+          <p>
+            <Link to={"/"}>{t("navbar.home")}</Link> {">"} {t("navbar.news")}
+          </p>
+        </div>
       </div>
       <div className="container">
-        <div className="cards">
-          {newsData.map((item) => {
-            return <NewsCard key={item.id} item={item} />;
+        <div className={styles.cards}>
+          {newsData.reverse().map((item, index) => {
+            return index < 3 ? <NewsCard key={item.id} item={item} /> : "";
           })}
         </div>
       </div>
@@ -46,4 +48,3 @@ export const News = ({ setContentLoading }) => {
 News.propTypes = {
   setContentLoading: PropTypes.func,
 };
-  

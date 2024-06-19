@@ -8,7 +8,8 @@
     "news": "Yangiliklar",
     "input_placeholder": "Qidiruv...",
     "button_content": "Ro'yhatdan o'tish",
-    "discount": "Qaynoq Chegirmalar"
+    "discount": "Qaynoq Chegirmalar",
+    "test":"Sayt test rejimida ishlamoqda!"
   },
   "signup": {
     "top": "Ro'yhatdan o'tish",

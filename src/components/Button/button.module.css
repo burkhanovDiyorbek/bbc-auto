@@ -6,6 +6,7 @@ button {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: .3s ease;
 }
 .register {
   background: #03686b;
@@ -14,4 +15,16 @@ button {
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.home {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  margin-top: 40px;
+  padding: 5px 36px;
+  &:hover {
+    color: black;
+    background: #fff;
+  }
 }

@@ -31,15 +31,14 @@ export const About = ({ setContentLoading }) => {
     };
     fetchData();
   }, []);
-  console.log(aboutData, workersData, servicesData);
+  
   return (
     <div className={styles.about}>
       <div className={styles["about-container"] + " container"}>
         <div className={styles.top}>
-          <h2>{t("navbar.about_us")}</h2>
           <div>
             <div className={styles.content}>
-              <h2>{aboutData?.[`title_${curLng}`]}</h2>
+              <h2 className={styles.title}>{aboutData?.[`title_${curLng}`]}</h2>
               <p>{aboutData?.[`description_${curLng}`]}</p>
             </div>
             <div className={styles["card-img"]}>
@@ -48,16 +47,16 @@ export const About = ({ setContentLoading }) => {
           </div>
         </div>
         <div className={styles.slice}>
-          <h2>{t("about_us.workers")}</h2>
-          <div className="cards">
+          <h2 className={styles.title}>{t("about_us.workers")}</h2>
+          <div className={styles["services-cards"]}>
             {workersData.map((item) => (
               <WorkersCard key={item.id} item={item} />
             ))}
           </div>
         </div>
         <div className={styles.slice}>
-          <h2>{t("about_us.services")}</h2>
-          <div className="cards">
+          <h2 className={styles.title}>{t("about_us.services")}</h2>
+          <div className={styles["services-cards"]}>
             {servicesData.map((item) => (
               <Services key={item.id} item={item} />
             ))}

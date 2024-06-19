@@ -40,17 +40,19 @@ export const Catalog = ({ setContentLoading }) => {
   return (
     <section className={styles.section + " catalog-section"}>
       <div className="section-header">
-        <h2>{t("navbar.catalog")}</h2>
-        <p>
-          <Link to={"/"}>{t("navbar.home")}</Link> {">"} {t("navbar.catalog")}
-        </p>
+        <div className="section-header_content">
+          <h2>{t("navbar.catalog")}</h2>
+          <p>
+            <Link to={"/"}>{t("navbar.home")}</Link> {">"} {t("navbar.catalog")}
+          </p>
+        </div>
       </div>
       <div className={styles.slider}>
         <h2 style={{ textAlign: "center" }}>{t(`catalog.partners`)}</h2>
         <Swiper
           modules={[Autoplay, Navigation, A11y]}
-          spaceBetween={500}
-          slidesPerView={4}
+          spaceBetween={50}
+          slidesPerView={5}
           navigation
           loop={true}
           autoplay={{
