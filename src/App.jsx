@@ -29,14 +29,6 @@ i18n.use(initReactI18next).init({
   fallbackLng: localStorage.getItem("i18lng") || "uz",
 });
 
-function httpGet(theUrl) {
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", theUrl, false); // false for synchronous request
-  xmlHttp.send(null);
-  return xmlHttp.responseText;
-}
-
-console.log(httpGet("http://bbc.mebel-zakaz.uz/about/top/"));
 
 function App() {
   const [contentLoading, setContentLoading] = useState(false);
