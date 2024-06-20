@@ -9,7 +9,6 @@ body {
   font-family: "Outfit", sans-serif;
   background: #1b1b1b;
   color: #fff;
-  min-width: 1440px;
 }
 
 ul,
@@ -78,9 +77,10 @@ a {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(570px, 580px));
+  grid-template-columns: repeat(auto-fill, minmax(570px, auto));
   gap: 40px 80px;
   justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
 }
 .container {
@@ -181,4 +181,55 @@ a {
   transform: scale(1);
   visibility: visible;
   transition: 0.3s ease;
+}
+
+@media (max-width: 400px) {
+  .mob-hide {
+    display: none !important;
+  }
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(280px, auto));
+  }
+  .desk-hide {
+    display: block !important;
+  }
+
+  .section-header {
+    h2 {
+      font-size: 16px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}
+
+.desk-hide {
+  display: none;
+}
+
+.menu-show {
+  display: flex!important;
+  flex-direction: column!important;
+  position: absolute;
+  backdrop-filter: blur(20px);
+  width: 100vw;
+  height: 100vh;
+  gap: 20px;
+  top: 0;
+  left: 0;
+  padding: 35px 20px;
+  ul{
+    flex-direction: column;
+  }
+  label{
+    justify-content: space-between;
+  }
+}
+
+.icon-absolute{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
 }

@@ -1,5 +1,5 @@
-import { useState } from "react"; 
-import styles from "./time.module.css"
+import { useState } from "react";
+import styles from "./time.module.css";
 
 export const Time = () => {
   const [hour, setHour] = useState(0);
@@ -14,7 +14,7 @@ export const Time = () => {
   }, 1000);
 
   return (
-    <div className={styles.div}>
+    <div className={styles.div + " mob-hide"}>
       <p>{hour < 10 ? "0" + hour : hour}</p>
       <span>:</span>
       <p>{minute < 10 ? "0" + minute : minute}</p>

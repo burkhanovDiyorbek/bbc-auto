@@ -10,6 +10,7 @@
   align-items: center;
   gap: 40px;
   justify-content: center;
+  padding: 0 20px;
 }
 .logo {
   font-size: 24px;
@@ -72,7 +73,7 @@
   }
 }
 
-.top{
+.top {
   display: flex;
   align-items: center;
   padding: 7px;
@@ -80,8 +81,22 @@
   font-size: 14px;
   justify-content: center;
   gap: 20px;
-  .alert{
+  .alert {
     width: 30%;
     text-align: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    justify-content: space-between;
+    .mob-icon{
+      display: flex;
+      align-items: center;
+      svg{
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 }

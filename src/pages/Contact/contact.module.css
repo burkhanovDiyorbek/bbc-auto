@@ -16,6 +16,8 @@
 .contact-container {
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .contact-info {
   display: flex;
@@ -53,23 +55,23 @@
   }
 }
 
-.socials{
+.socials {
   display: flex;
   gap: 20px;
-  li{
+  li {
     padding: 5px 5px 0;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  li:hover{
+  li:hover {
     border-radius: 4px;
     background: rgba(128, 128, 128, 0.308);
   }
-  svg{
+  svg {
     width: 30px;
     height: 30px;
-    path{
+    path {
       fill: #f5f5f5;
     }
   }

@@ -7,19 +7,25 @@ import { Button } from "../Button/Button";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Select } from "../Select/Select";
-import React from "react";
+import React, { useState } from "react";
 import { Time } from "../Time/Time";
 import { ExchangeRates } from "../ExchangeRates/ExchangeRates";
+import { IoIosMenu } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
 
 export const Navbar = React.memo(({ changeLang }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const [showMenu, setShowMenu] = useState(false);
 
   const logOut = () => {
     localStorage.removeItem("token");
     navigate("/auth/login");
   };
+
+
+  document.body.style = `overflow:${showMenu ? "hidden" : "auto"}`;
 
   return (
     <nav className={styles.navbar}>
@@ -27,63 +33,73 @@ export const Navbar = React.memo(({ changeLang }) => {
         <Time />
         <div className={styles.wheather}></div>
         <p className={styles.alert}>{t("navbar.test")}</p>
-        <ExchangeRates/>
+        <ExchangeRates />
       </div>
       <div className={styles.container + " container"}>
         <Link to="/" className={styles.logo}>
           BBC AUTO
         </Link>
-        <ul className={styles.ul}>
-          {navTabData.map((item) => {
-            const { id, content, to } = item;
-            return (
-              <li key={id}>
-                <NavLink to={to}>{t(`navbar.${content}`)}</NavLink>
-              </li>
-            );
-          })}
-        </ul>
-        <label className={styles.label}>
-          <input type="text" placeholder={t("navbar.input_placeholder")} />
-          <FaSearch />
-        </label>
-        <Select
-          data={{
-            className: "select",
-            onchangefunc: changeLang,
-            value: localStorage.getItem("i18lng") || "uz",
-            options: [
-              {
-                id: 0,
-                value: "uz",
-                content: "O'zbekcha",
-                imgUrl: "./../src/assets/uz.svg",
-              },
-              {
-                id: 1,
-                value: "ru",
-                content: "Русский",
-                imgUrl: "./../src/assets/ru.svg",
-              },
-            ],
-          }}
-        />
-        {!pathname.includes("auth") ? (
-          !localStorage.getItem("token") ? (
-            <Link to={"/auth/signup"}>
-              <Button
-                content={t("navbar.button_content")}
-                classname="register"
-              />
-            </Link>
+        <div
+          className={`mob-icon desk-hide ${showMenu ? "icon-absolute" : ""}`}
+          onClick={() => setShowMenu((prev) => !prev)}
+        >
+          {!showMenu ? <IoIosMenu /> : <IoCloseSharp />}
+        </div>
+        <div
+          className={`menu mob-hide ${showMenu ? "menu-show" : "menu-hide"}`}
+        >
+          <ul className={styles.ul}>
+            {navTabData.map((item) => {
+              const { id, content, to } = item;
+              return (
+                <li key={id}>
+                  <NavLink to={to}>{t(`navbar.${content}`)}</NavLink>
+                </li>
+              );
+            })}
+          </ul>
+          <label className={styles.label}>
+            <input type="text" placeholder={t("navbar.input_placeholder")} />
+            <FaSearch />
+          </label>
+          <Select
+            data={{
+              className: "select",
+              onchangefunc: changeLang,
+              value: localStorage.getItem("i18lng") || "uz",
+              options: [
+                {
+                  id: 0,
+                  value: "uz",
+                  content: "O'zbekcha",
+                  imgUrl: "./../src/assets/uz.svg",
+                },
+                {
+                  id: 1,
+                  value: "ru",
+                  content: "Русский",
+                  imgUrl: "./../src/assets/ru.svg",
+                },
+              ],
+            }}
+          />
+          {!pathname.includes("auth") ? (
+            !localStorage.getItem("token") ? (
+              <Link to={"/auth/signup"}>
+                <Button
+                  content={t("navbar.button_content")}
+                  classname="register"
+                />
+              </Link>
+            ) : (
+              <div className={styles.user} onClick={logOut}>
+                <CiLogout />
+              </div>
+            )
           ) : (
-            <div className={styles.user} onClick={logOut}>
-              <CiLogout />
-            </div>
-          )
-        ) : (
-          ""
-        )}
+            ""
+          )}
+        </div>
       </div>
     </nav>
   );

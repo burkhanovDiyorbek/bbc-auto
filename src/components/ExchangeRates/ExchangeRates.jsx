@@ -23,7 +23,7 @@ export const ExchangeRates = () => {
   }, []);
 
   return (
-    <div className={styles.div}>
+    <div className={styles.div +" mob-hide"}>
       {data
         .filter(
           (item) =>

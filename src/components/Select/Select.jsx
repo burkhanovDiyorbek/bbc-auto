@@ -17,7 +17,7 @@ export const Select = ({ data }) => {
 
   const { onchangefunc, options, className } = data;
   return (
-    <div className={styles[className]}>
+    <div className={styles[className] + " mob-hide"}>
       <p
         onClick={() => setShowOptions((prev) => !prev)}
         className={styles[showOptions ? "true" : "false"]}
@@ -31,16 +31,17 @@ export const Select = ({ data }) => {
       <ul className={`${showOptions ? "show" : "hidden"}`}>
         {options.map((item) => {
           return (
-           item.value!=value&&
-            <li
-              key={item.id}
-              onClick={() => {
-                liClickFunc(item.value);
-              }}
-            >
-              <img src={item.imgUrl} alt="" />
-              {item.content}
-            </li>
+            item.value != value && (
+              <li
+                key={item.id}
+                onClick={() => {
+                  liClickFunc(item.value);
+                }}
+              >
+                <img src={item.imgUrl} alt="" />
+                {item.content}
+              </li>
+            )
           );
         })}
       </ul>

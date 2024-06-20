@@ -6,6 +6,7 @@ import styles from "./carcard.module.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
+
 export const CarCard = ({ item }) => {
   const { image, price, year, km } = item;
   const { i18n } = useTranslation();

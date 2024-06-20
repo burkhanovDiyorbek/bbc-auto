@@ -84,8 +84,7 @@ export const Contact = ({ setContentLoading }) => {
           </h2>
           <iframe
             src={`https://maps.google.com/maps?q=${lat},${long}&z=${16}&output=embed`}
-            width="560"
-            height="400"
+            style={{ maxWidth: "560px", width: "100vw", height: "400px" }}
             allowFullScreen={true}
           ></iframe>
         </div>
