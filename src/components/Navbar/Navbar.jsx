@@ -7,23 +7,30 @@ import { Button } from "../Button/Button";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Select } from "../Select/Select";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Time } from "../Time/Time";
 import { ExchangeRates } from "../ExchangeRates/ExchangeRates";
 import { IoIosMenu } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 
-export const Navbar = React.memo(({ changeLang }) => {
+export const Navbar = React.memo(({ changeLang, setQ }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+  const searchValue = useRef("");
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const { current } = searchValue;
+    setQ(current.value);
+    navigate(`/search?q=${current.value}`);
+  };
 
   const logOut = () => {
     localStorage.removeItem("token");
     navigate("/auth/login");
   };
-
 
   document.body.style = `overflow:${showMenu ? "hidden" : "auto"}`;
 
@@ -58,10 +65,16 @@ export const Navbar = React.memo(({ changeLang }) => {
               );
             })}
           </ul>
-          <label className={styles.label}>
-            <input type="text" placeholder={t("navbar.input_placeholder")} />
-            <FaSearch />
-          </label>
+          <form onSubmit={handleSearch}>
+            <label className={styles.label}>
+              <input
+                type="text"
+                placeholder={t("navbar.input_placeholder")}
+                ref={searchValue}
+              />
+              <FaSearch />
+            </label>
+          </form>
           <Select
             data={{
               className: "select",
@@ -109,4 +122,5 @@ Navbar.displayName = "Navbar";
 
 Navbar.propTypes = {
   changeLang: PropTypes.func,
+  setQ: PropTypes.func,
 };

@@ -2,10 +2,10 @@ import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar/Navbar";
 import PropTypes from "prop-types";
 
-export const Layout = ({ changeLang }) => {
+export const Layout = ({ changeLang ,setQ}) => {
   return (
     <>
-      <Navbar changeLang={changeLang} />
+      <Navbar changeLang={changeLang} setQ={setQ}/>
       <Outlet />
     </>
   );
@@ -13,4 +13,5 @@ export const Layout = ({ changeLang }) => {
 
 Layout.propTypes = {
   changeLang: PropTypes.func,
+  setQ: PropTypes.func,
 };

@@ -9,7 +9,7 @@
     "input_placeholder": "Qidiruv...",
     "button_content": "Ro'yhatdan o'tish",
     "discount": "Qaynoq Chegirmalar",
-    "test":"Sayt test rejimida ishlamoqda!"
+    "test": "Sayt test rejimida ishlamoqda!"
   },
   "signup": {
     "top": "Ro'yhatdan o'tish",
@@ -89,5 +89,11 @@
     "interest_rate": "Yillik foiz (%)",
     "period_month": "Muddati",
     "all_payment": "Siz to'laysiz"
+  },
+  "search": {
+    "res": "So'rovi bo'yicha natijalar",
+    "res_error": "So'rovi bo'yicha hech narsa topilmadi",
+    "cars": "Avtomobillar",
+    "news": "Yangiliklar"
   }
 }

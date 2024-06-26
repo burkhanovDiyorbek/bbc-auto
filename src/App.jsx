@@ -19,6 +19,7 @@ import { useState } from "react";
 import { Loader } from "./components/Loader";
 import { CatalogCarInfo } from "./pages/CatalogCarInfo/CatalogCarInfo";
 import { Credit } from "./pages/Credit/Credit";
+import { Search } from "./pages/Search/Search";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -29,10 +30,9 @@ i18n.use(initReactI18next).init({
   fallbackLng: localStorage.getItem("i18lng") || "uz",
 });
 
-
 function App() {
   const [contentLoading, setContentLoading] = useState(false);
-
+  const [q, setQ] = useState("");
   const changeLang = (value) => {
     i18n.changeLanguage(value);
     localStorage.setItem("i18lng", value);
@@ -43,7 +43,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout changeLang={changeLang} />}>
+        <Route path="/" element={<Layout changeLang={changeLang} setQ={setQ}/>}>
           <Route
             index
             element={<Home setContentLoading={setContentLoading} />}
@@ -80,6 +80,10 @@ function App() {
           <Route
             path="auth/login"
             element={<Login setContentLoading={setContentLoading} />}
+          />
+          <Route
+            path="search"
+            element={<Search setContentLoading={setContentLoading} q={q}/>}
           />
           <Route path="*" element={<NotFound />} />
         </Route>
