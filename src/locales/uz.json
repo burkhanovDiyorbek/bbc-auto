@@ -95,5 +95,10 @@
     "res_error": "So'rovi bo'yicha hech narsa topilmadi",
     "cars": "Avtomobillar",
     "news": "Yangiliklar"
+  },
+  "footer": {
+    "link": "Havolalar",
+    "contact": "Aloqa",
+    "socials":"Tarmoqlar"
   }
 }

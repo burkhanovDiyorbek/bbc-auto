@@ -16,6 +16,18 @@ ol {
   list-style: none;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  section{
+    flex: 1;
+  }
+}
+
+
+
 a {
   display: inline-block;
   text-decoration: none;
@@ -204,8 +216,8 @@ a {
   }
 
   .menu-show {
-    display: flex!important;
-    flex-direction: column!important;
+    display: flex !important;
+    flex-direction: column !important;
     position: absolute;
     backdrop-filter: blur(20px);
     width: 100vw;
@@ -233,11 +245,11 @@ a {
 .desk-hide {
   display: none;
 }
-.menu{
+.menu {
   display: flex;
   align-items: center;
   gap: 10px;
-  ul{
+  ul {
     align-items: center;
     display: flex;
   }
