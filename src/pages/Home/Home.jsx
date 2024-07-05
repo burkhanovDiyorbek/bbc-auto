@@ -57,10 +57,10 @@ export const Home = ({ setContentLoading }) => {
       >
         <SwiperSlide>
           <div className="swiper-slide">
-            <img src={sliders[0]?.image} alt="img" />
+            <img src={sliders?.[0]?.image} alt="img" />
             <div className={styles.content}>
-              <h2>{sliders[0]?.[`title_${curLng}`]}</h2>
-              <p>{sliders[0]?.[`description_${curLng}`]}</p>
+              <h2>{sliders?.[0]?.[`title_${curLng}`]}</h2>
+              <p>{sliders?.[0]?.[`description_${curLng}`]}</p>
               <Link to={"/catalog"}>
                 <Button content={t("navbar.catalog")} classname="home" />
               </Link>
@@ -69,10 +69,10 @@ export const Home = ({ setContentLoading }) => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="swiper-slide">
-            <img src={sliders[1]?.image} alt="img" />
+            <img src={sliders?.[1]?.image} alt="img" />
             <div className={styles.content}>
-              <h2>{sliders[1]?.[`title_${curLng}`]}</h2>
-              <p>{sliders[1]?.[`description_${curLng}`]}</p>
+              <h2>{sliders?.[1]?.[`title_${curLng}`]}</h2>
+              <p>{sliders?.[1]?.[`description_${curLng}`]}</p>
               <Link to={"/catalog"}>
                 <Button content={t("navbar.catalog")} classname="home" />
               </Link>
@@ -81,10 +81,10 @@ export const Home = ({ setContentLoading }) => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="swiper-slide">
-            <img src={sliders[2]?.image} alt="img" />
+            <img src={sliders?.[2]?.image} alt="img" />
             <div className={styles.content}>
-              <h2>{sliders[2]?.[`title_${curLng}`]}</h2>
-              <p>{sliders[2]?.[`description_${curLng}`]}</p>
+              <h2>{sliders?.[2]?.[`title_${curLng}`]}</h2>
+              <p>{sliders?.[2]?.[`description_${curLng}`]}</p>
               <Link to={"/catalog"}>
                 <Button content={t("navbar.catalog")} classname="home" />
               </Link>
@@ -104,7 +104,7 @@ export const Home = ({ setContentLoading }) => {
         <div className={styles.slice}>
           <h2>{t("navbar.news")}</h2>
           <div className={styles["news-cards"]}>
-            {newsData.reverse().map((item, index) => {
+            {newsData?.reverse().map((item, index) => {
               return index < 4 && <NewsCard key={item.id} item={item} />;
             })}
           </div>

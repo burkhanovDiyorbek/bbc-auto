@@ -23,23 +23,23 @@ export const Select = ({ data }) => {
         className={styles[showOptions ? "true" : "false"]}
       >
         <img
-          src={options.filter((item) => item.value == value)[0].imgUrl}
+          src={options?.filter((item) => item.value == value)[0]?.imgUrl}
           alt=""
         />{" "}
-        <span>{options.filter((item) => item.value == value)[0].content}</span>
+        <span>{options?.filter((item) => item.value == value)[0]?.content}</span>
       </p>
       <ul className={`${showOptions ? "show" : "hidden"}`}>
-        {options.map((item) => {
+        {options?.map((item) => {
           return (
-            item.value != value && (
+            item?.value != value && (
               <li
                 key={item.id}
                 onClick={() => {
-                  liClickFunc(item.value);
+                  liClickFunc(item?.value);
                 }}
               >
-                <img src={item.imgUrl} alt="" />
-                {item.content}
+                <img src={item?.imgUrl} alt="" />
+                {item?.content}
               </li>
             )
           );
