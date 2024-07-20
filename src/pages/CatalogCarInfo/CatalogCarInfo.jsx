@@ -13,6 +13,7 @@ import { CreditCalculator } from "../../components/CreditCalculator/CreditCalcul
 export const CatalogCarInfo = ({ setContentLoading }) => {
   const [carData, setCarData] = useState(null);
   const [installmentPlan, setInstallmentPlanData] = useState(null);
+  const [sliderState, setSliderState] = useState(0);
   const { t, i18n } = useTranslation();
   const curLng = i18n.language;
   const { id } = useParams();
@@ -36,7 +37,6 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
     fetchData();
   }, [id, setContentLoading]);
 
-
   return (
     <section className={styles.section}>
       <div className="section-header">
@@ -49,14 +49,55 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
           </p>
         </div>
       </div>
-      <div className={styles.container+" container"}>
+      <div className={styles.container + " container"}>
         <div className={styles.row1}>
           <div className={styles["card-top"]}>
             <h2>{carData?.[`title_${curLng}`]}</h2>
             <p>{carData?.price}</p>
           </div>
           <div className={styles["card-img"]}>
-            <img src={carData?.image} alt="car" />
+            <div className={styles.img}>
+              <img src={carData?.images[sliderState]?.image} alt="car" />
+            </div>
+            <div className={styles.slider}>
+              {carData?.images?.map((img, index) => {
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setSliderState(index)}
+                    className={index == sliderState ? styles.active : ""}
+                  >
+                    <img src={img.image} alt={index + "image"} />
+                  </div>
+                );
+              })}
+              {carData?.images?.map((img, index) => {
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setSliderState(index)}
+                    className={index == sliderState ? styles.active : ""}
+                  >
+                    <img
+                      src={img.image}
+                      alt={index + "image"}
+                      draggable={false}
+                    />
+                  </div>
+                );
+              })}
+              {carData?.images?.map((img, index) => {
+                return (
+                  <div
+                    key={index}
+                    onClick={() => setSliderState(index)}
+                    className={index == sliderState ? styles.active : ""}
+                  >
+                    <img src={img.image} alt={index + "image"} />
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <p className={styles.desc}>{carData?.[`description_${curLng}`]}</p>
           <div className={styles.inform}>

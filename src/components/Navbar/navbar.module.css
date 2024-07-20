@@ -87,7 +87,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1000px) {
   .container {
     justify-content: space-between;
     .mob-icon{

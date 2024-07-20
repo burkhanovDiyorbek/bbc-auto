@@ -37,6 +37,7 @@ export const Catalog = ({ setContentLoading }) => {
     fetchData();
   }, []);
 
+
   return (
     <section className={styles.section + " catalog-section"}>
       <div className="section-header">

@@ -5,12 +5,12 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
 export const CreditCalculator = ({ installmentplant, carData }) => {
-  const [month, setMonth] = useState(installmentplant?.subs?.[0].month || 0);
+  const [month, setMonth] = useState(installmentplant?.subs?.[0].duration);
   const [percent, setPercent] = useState(
     installmentplant?.subs?.[0].annual_interest_rate || 0
   );
   const [downPayment, setDownPayment] = useState(0);
-  const [monthlyPayment, setMonthlyPayment] = useState(0);
+  const [monthlyPayment, setMonthlyPayment] = useState(6);
   const [totalPayment, setTotalPayment] = useState(0);
   const { t } = useTranslation();
 

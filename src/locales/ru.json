@@ -88,7 +88,8 @@
     "down_paying": "Первоначальный взнос",
     "interest_rate": "Процент годовых (%)",
     "period_month": "Период",
-    "all_paying": "Вы платите"
+    "all_paying": "Вы платите",
+    "down_payment":"Расчет рассрочки"
   },
   "search": {
     "res": "Результаты по запросу",
