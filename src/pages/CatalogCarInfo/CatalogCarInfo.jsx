@@ -71,32 +71,6 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
                   </div>
                 );
               })}
-              {carData?.images?.map((img, index) => {
-                return (
-                  <div
-                    key={index}
-                    onClick={() => setSliderState(index)}
-                    className={index == sliderState ? styles.active : ""}
-                  >
-                    <img
-                      src={img.image}
-                      alt={index + "image"}
-                      draggable={false}
-                    />
-                  </div>
-                );
-              })}
-              {carData?.images?.map((img, index) => {
-                return (
-                  <div
-                    key={index}
-                    onClick={() => setSliderState(index)}
-                    className={index == sliderState ? styles.active : ""}
-                  >
-                    <img src={img.image} alt={index + "image"} />
-                  </div>
-                );
-              })}
             </div>
           </div>
           <p className={styles.desc}>{carData?.[`description_${curLng}`]}</p>
