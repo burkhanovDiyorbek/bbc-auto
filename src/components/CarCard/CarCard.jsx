@@ -11,37 +11,39 @@ export const CarCard = ({ item }) => {
   const { images, price, year, km } = item;
   const { i18n } = useTranslation();
   const curLng = i18n.language;
-  
+
   return (
-    <Link to={`/catalog/car/${item.id}/`}>
-      <div className={styles.card}>
-        <div className={styles["card-img"]}>
-          <img src={images?.[0]?.image} alt="car img" />
-        </div>
-        <div className={styles.content}>
-          <div className={styles["content-text"]}>
+    <div className={styles.card} key={item.id}>
+      <div className={styles["card-img"]}>
+        <img src={images?.[0]?.image} alt="car img" />
+      </div>
+      <div className={styles.content}>
+        <div className={styles["content-text"]}>
+          <Link to={`/catalog/car/${item.id}/`}>
             <h2>{item[`title_${curLng}`]}</h2>
-            <div className={styles.static}>
-              <p>
-                <FaCarRear /> {year} y
-              </p>
-              <p>
-                <FaRoad /> {km} km
-              </p>
-              <p>
-                <IoPricetags /> {price}
-              </p>
-            </div>
-          </div>
-          <div className={styles["content-details"]}>
-            <Button content={"Details"} classname="car-btn" />
+          </Link>
+          <div className={styles.static}>
             <p>
-              <span>{item.price}</span>
+              <FaCarRear /> {year} y
+            </p>
+            <p>
+              <FaRoad /> {km} km
+            </p>
+            <p>
+              <IoPricetags /> {price}
             </p>
           </div>
         </div>
+        <div className={styles["content-details"]}>
+          <Link to={`/catalog/car/${item.id}/`}>
+            <Button content={"Details"} classname="car-btn" />
+          </Link>
+          <p>
+            <span>{item.price}</span>
+          </p>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

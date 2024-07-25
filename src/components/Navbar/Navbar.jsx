@@ -59,7 +59,7 @@ export const Navbar = React.memo(({ changeLang, setQ }) => {
             {navTabData.map((item) => {
               const { id, content, to } = item;
               return (
-                <li key={id}>
+                <li key={id} onClick={() => setShowMenu(false)}>
                   <NavLink to={to}>{t(`navbar.${content}`)}</NavLink>
                 </li>
               );

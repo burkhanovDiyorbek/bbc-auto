@@ -103,7 +103,7 @@
   background: yellowgreen;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 1230px) {
   .section {
     
     .container {

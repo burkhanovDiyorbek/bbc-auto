@@ -14,6 +14,8 @@ export const CreditCalculator = ({ installmentplant, carData }) => {
   const [totalPayment, setTotalPayment] = useState(0);
   const { t } = useTranslation();
 
+  console.log(installmentplant);
+
   const calculateLoan = (
     totalLoan,
     initialPayment,
