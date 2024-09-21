@@ -74,7 +74,15 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
               })}
             </div>
           </div>
-          <p className={styles.desc}>{carData?.[`description_${curLng}`]}</p>
+          <p
+            className={styles.desc}
+            dangerouslySetInnerHTML={{
+              __html: carData?.[`description_${curLng}`]?.replaceAll(
+                "\r\n",
+                " <br />"
+              ),
+            }}
+          />
           <div className={styles.inform}>
             <h2>{t("catalog.characteristics")}</h2>
             <ul>

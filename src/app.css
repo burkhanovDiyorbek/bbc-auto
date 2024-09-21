@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-img{
+img {
   object-fit: cover;
 }
 
@@ -19,8 +19,6 @@ ul,
 ol {
   list-style: none;
 }
-
-
 
 a {
   display: inline-block;
@@ -194,9 +192,9 @@ a {
     display: none !important;
   }
   .cards {
-    grid-template-columns: auto!important;
-    .card{
-      align-items: center!important;
+    grid-template-columns: auto !important;
+    .card {
+      align-items: center !important;
       display: flex;
     }
   }
