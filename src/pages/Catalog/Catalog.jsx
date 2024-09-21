@@ -37,6 +37,7 @@ export const Catalog = ({ setContentLoading }) => {
     fetchData();
   }, []);
 
+  console.log(catalog);
 
   return (
     <section className={styles.section + " catalog-section"}>
@@ -133,10 +134,9 @@ export const Catalog = ({ setContentLoading }) => {
             )
             .filter((item) => (discount ? item.discount : item))
             .filter((item) => (selectVal != "all" ? item[selectVal] : item))
-            .map(
-              (item, index) =>
-                index < 8 && <CarCard key={item.id} item={item} />
-            )}
+            .map((item) => (
+              <CarCard key={item.id} item={item} />
+            ))}
         </div>
       </div>
     </section>

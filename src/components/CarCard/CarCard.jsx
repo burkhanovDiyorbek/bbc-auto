@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 
 export const CarCard = ({ item }) => {
-  const { images, price, year, km } = item;
+  const { price, year, km } = item;
   const { i18n } = useTranslation();
   const curLng = i18n.language;
 
   return (
     <div className={styles.card} key={item.id}>
       <div className={styles["card-img"]}>
-        <img src={images?.[0]?.image} alt="car img" />
+        <img src={item?.image} alt="car img" />
       </div>
       <div className={styles.content}>
         <div className={styles["content-text"]}>

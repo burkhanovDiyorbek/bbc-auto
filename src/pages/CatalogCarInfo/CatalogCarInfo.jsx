@@ -22,12 +22,13 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
     setContentLoading(true);
     const fetchData = async () => {
       try {
-        const [carResponse, installmentResponse] = await Promise.all([
-          axios.get(`/catalog/car/${id}/`),
-          axios.get(`/catalog/installmentplan/${id}`),
-        ]);
-        setCarData(carResponse.data);
-        setInstallmentPlanData(installmentResponse.data);
+        axios.get(`/catalog/car/${id}`).then((req) => {
+          return setCarData(req.data);
+        });
+
+        axios
+          .get(`/catalog/installmentplan/${id}`)
+          .then((req) => setInstallmentPlanData(req.data));
       } catch (error) {
         toast.error(error.message, { position: "top-center" });
       } finally {
@@ -35,7 +36,7 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
       }
     };
     fetchData();
-  }, [id, setContentLoading]);
+  }, []);
 
   return (
     <section className={styles.section}>
@@ -110,10 +111,14 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
             </ul>
           </div>
         </div>
-        <CreditCalculator
-          carData={carData}
-          installmentplant={installmentPlan}
-        />
+        {installmentPlan ? (
+          <CreditCalculator
+            carData={carData}
+            installmentplant={installmentPlan}
+          />
+        ) : (
+          ""
+        )}
       </div>
     </section>
   );
