@@ -5,9 +5,9 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
 export const CreditCalculator = ({ installmentplant, carData }) => {
-  const [month, setMonth] = useState(installmentplant?.subs?.[0].duration);
+  const [month, setMonth] = useState(installmentplant?.subs?.[0]?.duration);
   const [percent, setPercent] = useState(
-    installmentplant?.subs?.[0].annual_interest_rate || 0
+    installmentplant?.subs?.[0]?.annual_interest_rate || 0
   );
   const [downPayment, setDownPayment] = useState(0);
   const [monthlyPayment, setMonthlyPayment] = useState(6);
@@ -33,7 +33,7 @@ export const CreditCalculator = ({ installmentplant, carData }) => {
     setMonthlyPayment(monthlyPaymentCalc.toFixed(2));
     setTotalPayment((monthlyPaymentCalc * loanTerm).toFixed(2));
   };
-  
+
   return (
     <div className={styles.row2}>
       <h2>{t("catalog.calculate")}</h2>

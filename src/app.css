@@ -9,6 +9,44 @@ img {
   object-fit: cover;
 }
 
+.img-cards {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  width: 100%;
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 10px;
+    width: 100% !important;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+      width: 44%;
+      min-width: 321px;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px;
+      a {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 5px;
+      }
+      &:nth-of-type(odd) {
+        border-right: 1px solid #e0e0e0;
+      }
+      img {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
 body {
   font-family: "Outfit", sans-serif;
   background: #1b1b1b;

@@ -20,6 +20,7 @@ import { Loader } from "./components/Loader";
 import { CatalogCarInfo } from "./pages/CatalogCarInfo/CatalogCarInfo";
 import { Credit } from "./pages/Credit/Credit";
 import { Search } from "./pages/Search/Search";
+import NewsAbout from "./pages/NewsAbout/NewsAbout";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -43,7 +44,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout changeLang={changeLang} setQ={setQ}/>}>
+        <Route
+          path="/"
+          element={<Layout changeLang={changeLang} setQ={setQ} />}
+        >
           <Route
             index
             element={<Home setContentLoading={setContentLoading} />}
@@ -74,6 +78,10 @@ function App() {
             element={<News setContentLoading={setContentLoading} />}
           />
           <Route
+            path="news/:id"
+            element={<NewsAbout setContentLoading={setContentLoading} />}
+          />
+          <Route
             path="auth/signup"
             element={<SignUp setContentLoading={setContentLoading} />}
           />
@@ -83,7 +91,7 @@ function App() {
           />
           <Route
             path="search"
-            element={<Search setContentLoading={setContentLoading} q={q}/>}
+            element={<Search setContentLoading={setContentLoading} q={q} />}
           />
           <Route path="*" element={<NotFound />} />
         </Route>

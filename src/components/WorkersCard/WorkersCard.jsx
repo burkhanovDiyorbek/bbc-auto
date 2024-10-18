@@ -6,11 +6,11 @@ export const WorkersCard = ({ item }) => {
   const { i18n } = useTranslation();
   const curLng = i18n.language;
   const { image } = item;
-  
+
   return (
     <div className={styles.card}>
       <div className={styles["card-img"]}>
-        <img src={image} alt="this is alt image" />
+        <img src={image} alt="" />
       </div>
       <div className={styles.content}>
         <h2>

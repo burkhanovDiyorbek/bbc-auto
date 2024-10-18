@@ -9,13 +9,13 @@ export const NewsCard = ({ item }) => {
   return (
     <div className={styles.card}>
       <div className={styles["card-img"]}>
-        <img src={image} alt="this is alt image" />
+        <img src={image} alt="" />
       </div>
       <div className={styles.content}>
         <h2>
-          <Link to={"/news"}>{item[`title_${curLng}`]}</Link>
+          <Link to={"/news/" + item.id}>{item[`title_${curLng}`]}</Link>
         </h2>
-        <Link to={"/news"} className={styles.link}>
+        <Link to={"/news/" + item.id} className={styles.link}>
           <span>
             {created_at.slice(8, 10)}.{created_at.slice(5, 7)}
           </span>

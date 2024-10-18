@@ -10,9 +10,22 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { IoLocation, IoMail } from "react-icons/io5";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const Footer = () => {
   const { t } = useTranslation();
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("/connection/contact/")
+      .then((req) => setData(req.data.results[0]));
+  }, []);
+
+  console.log(data);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container + " container"}>
@@ -40,22 +53,22 @@ export const Footer = () => {
           <h2>{t("footer.socials")}</h2>
           <ul className={styles.socials}>
             <li>
-              <Link>
+              <Link target="_blank" to={data?.telegram}>
                 <FaTelegram />
               </Link>
             </li>
             <li>
-              <Link>
+              <Link target="_blank" to={data?.facebook}>
                 <FaFacebook />
               </Link>
             </li>
             <li>
-              <Link>
+              <Link target="_blank" to={data?.instagram}>
                 <FaInstagram />
               </Link>
             </li>
             <li>
-              <Link>
+              <Link target="_blank" to={data?.twitter}>
                 <FaTwitter />
               </Link>
             </li>
@@ -68,11 +81,11 @@ export const Footer = () => {
             </li>
             <li>
               <IoMail />
-              <p>exaple@gmail.com</p>
+              <p>{data?.email}</p>
             </li>
             <li>
               <FaPhone />
-              <p>+998 (33) 340-02-03</p>
+              <p>{data?.phone}</p>
             </li>
           </ul>
         </div>

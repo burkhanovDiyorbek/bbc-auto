@@ -11,6 +11,8 @@
     "discount": "Qaynoq Chegirmalar",
     "test": "Sayt Sinovda!"
   },
+  "news": "Yangiliklar",
+  "latest_news": "So'nggi yangiliklar",
   "signup": {
     "top": "Ro'yhatdan o'tish",
     "bottom": {
@@ -99,6 +101,6 @@
   "footer": {
     "link": "Havolalar",
     "contact": "Aloqa",
-    "socials":"Tarmoqlar"
+    "socials": "Tarmoqlar"
   }
 }

@@ -38,6 +38,8 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
     fetchData();
   }, []);
 
+  console.log(installmentPlan);
+
   return (
     <section className={styles.section}>
       <div className="section-header">
@@ -119,13 +121,11 @@ export const CatalogCarInfo = ({ setContentLoading }) => {
             </ul>
           </div>
         </div>
-        {installmentPlan ? (
+        {installmentPlan?.car != null && (
           <CreditCalculator
             carData={carData}
             installmentplant={installmentPlan}
           />
-        ) : (
-          ""
         )}
       </div>
     </section>
