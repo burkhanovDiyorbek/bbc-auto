@@ -11,6 +11,7 @@ import { Autoplay, Navigation, A11y } from "swiper/modules";
 import PropTypes from "prop-types";
 import "swiper/css";
 import "swiper/css/bundle";
+import ReactPaginate from "react-paginate";
 
 export const Catalog = ({ setContentLoading }) => {
   const [catalog, setCatalog] = useState([]);
@@ -19,25 +20,35 @@ export const Catalog = ({ setContentLoading }) => {
   const [selectVal, setSelectVal] = useState("all");
   const { t, i18n } = useTranslation();
   const [sliders, setSliders] = useState([]);
+  const [pagination, setPagination] = useState({
+    currentPage: 1,
+    lastPage: 1,
+    perPage: 10,
+    total: 0,
+  });
   const curLng = i18n.language;
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (page = 1) => {
       setContentLoading(true);
       try {
-        const reqCatalog = await axios.get("/catalog/car/");
+        const reqCatalog = await axios.get(`/catalog/car/?page=${page}`);
         const reqLogos = await axios.get("/catalog/logo/");
         setCatalog(reqCatalog.data.results);
         setSliders(reqLogos.data.results);
+        setPagination(reqCatalog.data.pagination);
         setContentLoading(false);
       } catch (error) {
         toast.error(error.message, { position: "top-center" });
       }
     };
-    fetchData();
-  }, []);
+    fetchData(pagination.currentPage);
+  }, [pagination.currentPage]);
 
-  console.log(catalog);
+  const handlePageClick = (event) => {
+    const newPage = event.selected + 1;
+    setPagination((prev) => ({ ...prev, currentPage: newPage }));
+  };
 
   return (
     <section className={styles.section + " catalog-section"}>
@@ -49,6 +60,8 @@ export const Catalog = ({ setContentLoading }) => {
           </p>
         </div>
       </div>
+
+      {/* Slider Section */}
       <div className={styles.slider}>
         <h2 style={{ textAlign: "center" }}>{t(`catalog.partners`)}</h2>
         <Swiper
@@ -62,41 +75,19 @@ export const Catalog = ({ setContentLoading }) => {
             disableOnInteraction: false,
           }}
         >
-          {sliders.map((item) => {
-            return (
-              <SwiperSlide key={item.id}>
-                <Link to={item.link} target="_blank">
-                  <div className="swiper-slide">
-                    <img src={item.image} alt="img" />
-                  </div>
-                </Link>
-              </SwiperSlide>
-            );
-          })}
-          <SwiperSlide>
-            <Link to={sliders[0]?.link} target="_blank">
-              <div className="swiper-slide">
-                <img src={sliders[0]?.image} alt="img" />
-              </div>
-            </Link>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <Link to={sliders[1]?.link} target="_blank">
-              <div className="swiper-slide">
-                <img src={sliders[1]?.image} alt="img" />
-              </div>
-            </Link>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Link to={sliders[2]?.link} target="_blank">
-              <div className="swiper-slide">
-                <img src={sliders[2]?.image} alt="img" />
-              </div>
-            </Link>
-          </SwiperSlide>
+          {sliders.map((item) => (
+            <SwiperSlide key={item.id}>
+              <Link to={item.link} target="_blank">
+                <div className="swiper-slide">
+                  <img src={item.image} alt="img" />
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
+
+      {/* Sort & Search Section */}
       <div className={styles.sort}>
         <div>
           <input
@@ -124,6 +115,8 @@ export const Catalog = ({ setContentLoading }) => {
           </select>
         </div>
       </div>
+
+      {/* Catalog Cards Section */}
       <div className="container">
         <div className="cards">
           {catalog
@@ -133,11 +126,26 @@ export const Catalog = ({ setContentLoading }) => {
                 .includes(search.toLowerCase())
             )
             .filter((item) => (discount ? item.discount : item))
-            .filter((item) => (selectVal != "all" ? item[selectVal] : item))
+            .filter((item) => (selectVal !== "all" ? item[selectVal] : item))
             .map((item) => (
               <CarCard key={item.id} item={item} />
             ))}
         </div>
+
+        {/* Pagination Component */}
+      </div>
+      <div className="container">
+        <ReactPaginate
+          breakLabel="..."
+          nextLabel="next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pagination.lastPage}
+          previousLabel="< previous"
+          renderOnZeroPageCount={null}
+          forcePage={pagination.currentPage - 1}
+          className="paginate"
+        />
       </div>
     </section>
   );

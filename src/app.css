@@ -9,6 +9,25 @@ img {
   object-fit: cover;
 }
 
+.paginate {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  max-width: 450px;
+  margin: 40px auto;
+
+  li {
+    padding: 15px 20px;
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+
+  .selected {
+    background: #fff;
+    color: #000;
+  }
+}
+
 .img-cards {
   display: flex;
   flex-direction: column;
