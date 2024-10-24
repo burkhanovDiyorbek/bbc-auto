@@ -31,11 +31,7 @@ export const Footer = () => {
       <div className={styles.container + " container"}>
         <div>
           <h2>BBC AUTO</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis
-            necessitatibus nulla numquam earum odio praesentium placeat
-            voluptate quas quos. Nam.
-          </p>
+          <p>BBC avto ijara faqat mijozlarni o&apos;ylaydi</p>
         </div>
         <div>
           <h2>{t("footer.link")}</h2>
